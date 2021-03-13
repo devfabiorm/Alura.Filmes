@@ -1,5 +1,7 @@
 ﻿using Alura.Filmes.App.Dados;
 using Alura.Filmes.App.Extensions;
+using Alura.Filmes.App.Negocio;
+using System;
 
 namespace Alura.Filmes.App
 {
@@ -12,10 +14,18 @@ namespace Alura.Filmes.App
             using (var contexto = new AluraFilmesContext())
             {
                 contexto.LogSQLToConsole();
-                foreach (var ator in contexto.Atores)
+
+                var ator = new Ator
                 {
-                    System.Console.WriteLine(ator);
-                }
+                    PrimeiroNome = "Tom",
+                    UltimoNome = "Hanks"
+                };
+
+                contexto.Entry(ator).Property("last_update").CurrentValue = DateTime.Now;
+
+                contexto.Atores.Add(ator);
+
+                contexto.SaveChanges();
             }
         }
     }

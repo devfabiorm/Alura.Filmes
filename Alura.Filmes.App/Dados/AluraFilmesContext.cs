@@ -1,5 +1,6 @@
 ﻿using Alura.Filmes.App.Negocio;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Alura.Filmes.App.Dados
 {
@@ -8,7 +9,7 @@ namespace Alura.Filmes.App.Dados
         public DbSet<Ator> Atores { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=AluraFilmes;Trusted_connection=true;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=AluraFilmesTST;Trusted_connection=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,6 +36,11 @@ namespace Alura.Filmes.App.Dados
                 .HasColumnName("last_name")
                 .HasColumnType("varchar(45)")
                 .IsRequired();
+
+            modelBuilder
+                .Entity<Ator>()
+                .Property<DateTime>("last_update")
+                .HasColumnType("datetime");
         }
     }
 }
