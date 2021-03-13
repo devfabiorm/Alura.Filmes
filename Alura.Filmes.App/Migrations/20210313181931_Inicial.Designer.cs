@@ -11,8 +11,8 @@ using System;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(AluraFilmesContext))]
-    [Migration("20210313175214_Initial")]
-    partial class Initial
+    [Migration("20210313181931_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,7 @@ namespace Alura.Filmes.App.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("actor");
+                    b.ToTable("Atores");
                 });
 #pragma warning restore 612, 618
         }
