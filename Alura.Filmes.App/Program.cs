@@ -21,8 +21,6 @@ namespace Alura.Filmes.App
                     UltimoNome = "Hanks"
                 };
 
-                contexto.Entry(ator).Property("last_update").CurrentValue = DateTime.Now;
-
                 contexto.Atores.Add(ator);
 
                 contexto.SaveChanges();
