@@ -15,6 +15,10 @@ namespace Alura.Filmes.App.Dados
         {
             modelBuilder
                 .Entity<Ator>()
+                .ToTable("actor");
+
+            modelBuilder
+                .Entity<Ator>()
                 .Property(a => a.Id)
                 .HasColumnName("actor_id");
 

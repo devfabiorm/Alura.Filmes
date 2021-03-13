@@ -10,7 +10,7 @@ namespace Alura.Filmes.App.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Atores",
+                name: "actor",
                 columns: table => new
                 {
                     actor_id = table.Column<int>(type: "int", nullable: false)
@@ -20,14 +20,14 @@ namespace Alura.Filmes.App.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Atores", x => x.actor_id);
+                    table.PrimaryKey("PK_actor", x => x.actor_id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Atores");
+                name: "actor");
         }
     }
 }
