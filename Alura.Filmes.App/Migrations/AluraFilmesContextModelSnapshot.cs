@@ -45,6 +45,43 @@ namespace Alura.Filmes.App.Migrations
 
                     b.ToTable("actor");
                 });
+
+            modelBuilder.Entity("Alura.Filmes.App.Negocio.Filme", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("film_id");
+
+                    b.Property<string>("AnoLancamento")
+                        .HasColumnName("release_year")
+                        .HasColumnType("varchar(4)");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnName("description")
+                        .HasColumnType("text");
+
+                    b.Property<short>("Duracao")
+                        .HasColumnName("length");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnName("title")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<DateTime>("last_update")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("rating")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(10)")
+                        .HasDefaultValue("G");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("film");
+                });
 #pragma warning restore 612, 618
         }
     }
