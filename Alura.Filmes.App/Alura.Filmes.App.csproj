@@ -152,9 +152,9 @@
     <Compile Include="Migrations\20210314164420_FilmeCategoria.designer.cs">
       <DependentUpon>20210314164420_FilmeCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20210314164537_Idioma.cs" />
-    <Compile Include="Migrations\20210314164537_Idioma.designer.cs">
-      <DependentUpon>20210314164537_Idioma.cs</DependentUpon>
+    <Compile Include="Migrations\20210314175429_Idioma.cs" />
+    <Compile Include="Migrations\20210314175429_Idioma.designer.cs">
+      <DependentUpon>20210314175429_Idioma.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AluraFilmesContextModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
