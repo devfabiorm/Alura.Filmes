@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Alura.Filmes.App.Negocio
 {
@@ -11,6 +10,8 @@ namespace Alura.Filmes.App.Negocio
         public short Duracao { get; set; }
         public string AnoLancamento { get; set; }
         public IList<FilmeAtor> Atores { get; set; }
+        public IList<FilmeCategoria> Categorias { get; set; }
+
 
         public override string ToString()
         {
