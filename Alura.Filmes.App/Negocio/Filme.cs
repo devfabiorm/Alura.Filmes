@@ -12,11 +12,6 @@ namespace Alura.Filmes.App.Negocio
         public string AnoLancamento { get; set; }
         public IList<FilmeAtor> Atores { get; set; }
 
-        public Filme()
-        {
-            Atores = new List<FilmeAtor>();
-        }
-
         public override string ToString()
         {
             return $"Filme ({Id}): {Titulo} - {AnoLancamento}";
