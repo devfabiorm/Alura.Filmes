@@ -11,9 +11,10 @@ using System;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(AluraFilmesContext))]
-    partial class AluraFilmesContextModelSnapshot : ModelSnapshot
+    [Migration("20210314164420_FilmeCategoria")]
+    partial class FilmeCategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,26 +133,6 @@ namespace Alura.Filmes.App.Migrations
                     b.HasIndex("category_id");
 
                     b.ToTable("film_category");
-                });
-
-            modelBuilder.Entity("Alura.Filmes.App.Negocio.Idioma", b =>
-                {
-                    b.Property<byte>("Id")
-                        .HasColumnName("language_id");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnName("name")
-                        .HasColumnType("char(20)");
-
-                    b.Property<DateTime>("last_update")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("getdate()");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("language");
                 });
 
             modelBuilder.Entity("Alura.Filmes.App.Negocio.FilmeAtor", b =>

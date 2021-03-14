@@ -17,16 +17,9 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var filme = contexto
-                    .Filmes
-                    .Include(f => f.Categorias)
-                    .ThenInclude(fc => fc.Categoria)
-                    .First();
-
-                Console.WriteLine("Exibindo categorias: \n");
-                foreach (var categoria in filme.Categorias)
+                foreach (var idioma in contexto.Idiomas)
                 {
-                    Console.WriteLine(categoria.Categoria);
+                    Console.WriteLine(idioma);
                 }
             }
         }

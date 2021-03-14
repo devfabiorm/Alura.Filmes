@@ -11,9 +11,10 @@ using System;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(AluraFilmesContext))]
-    partial class AluraFilmesContextModelSnapshot : ModelSnapshot
+    [Migration("20210314164159_Categoria")]
+    partial class Categoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,44 +117,6 @@ namespace Alura.Filmes.App.Migrations
                     b.ToTable("film_actor");
                 });
 
-            modelBuilder.Entity("Alura.Filmes.App.Negocio.FilmeCategoria", b =>
-                {
-                    b.Property<int>("film_id");
-
-                    b.Property<byte>("category_id");
-
-                    b.Property<DateTime>("last_update")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("getdate()");
-
-                    b.HasKey("film_id", "category_id");
-
-                    b.HasIndex("category_id");
-
-                    b.ToTable("film_category");
-                });
-
-            modelBuilder.Entity("Alura.Filmes.App.Negocio.Idioma", b =>
-                {
-                    b.Property<byte>("Id")
-                        .HasColumnName("language_id");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnName("name")
-                        .HasColumnType("char(20)");
-
-                    b.Property<DateTime>("last_update")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasDefaultValueSql("getdate()");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("language");
-                });
-
             modelBuilder.Entity("Alura.Filmes.App.Negocio.FilmeAtor", b =>
                 {
                     b.HasOne("Alura.Filmes.App.Negocio.Ator", "Ator")
@@ -163,19 +126,6 @@ namespace Alura.Filmes.App.Migrations
 
                     b.HasOne("Alura.Filmes.App.Negocio.Filme", "Filme")
                         .WithMany("Atores")
-                        .HasForeignKey("film_id")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Alura.Filmes.App.Negocio.FilmeCategoria", b =>
-                {
-                    b.HasOne("Alura.Filmes.App.Negocio.Categoria", "Categoria")
-                        .WithMany("Filmes")
-                        .HasForeignKey("category_id")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Alura.Filmes.App.Negocio.Filme", "Filme")
-                        .WithMany("Categorias")
                         .HasForeignKey("film_id")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

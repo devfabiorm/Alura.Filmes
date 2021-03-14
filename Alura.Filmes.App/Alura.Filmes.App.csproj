@@ -130,10 +130,31 @@
     <Compile Include="Dados\FilmeAtorConfiguration.cs" />
     <Compile Include="Dados\FilmeCategoriaConfiguration.cs" />
     <Compile Include="Dados\FilmeConfiguration.cs" />
+    <Compile Include="Dados\IdiomaConfiguration.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20210313193046_Inicial.cs" />
     <Compile Include="Migrations\20210313193046_Inicial.designer.cs">
       <DependentUpon>20210313193046_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210314163625_Filme.cs" />
+    <Compile Include="Migrations\20210314163625_Filme.designer.cs">
+      <DependentUpon>20210314163625_Filme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210314164012_FilmeAtor.cs" />
+    <Compile Include="Migrations\20210314164012_FilmeAtor.designer.cs">
+      <DependentUpon>20210314164012_FilmeAtor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210314164159_Categoria.cs" />
+    <Compile Include="Migrations\20210314164159_Categoria.designer.cs">
+      <DependentUpon>20210314164159_Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210314164420_FilmeCategoria.cs" />
+    <Compile Include="Migrations\20210314164420_FilmeCategoria.designer.cs">
+      <DependentUpon>20210314164420_FilmeCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210314164537_Idioma.cs" />
+    <Compile Include="Migrations\20210314164537_Idioma.designer.cs">
+      <DependentUpon>20210314164537_Idioma.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AluraFilmesContextModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
@@ -141,6 +162,7 @@
     <Compile Include="Negocio\Filme.cs" />
     <Compile Include="Negocio\FilmeAtor.cs" />
     <Compile Include="Negocio\FilmeCategoria.cs" />
+    <Compile Include="Negocio\Idioma.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
