@@ -15,14 +15,12 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var idioma = new Idioma { Nome = "English" };
-
                 var filme = new Filme();
                 filme.Titulo = "Senhor dos Anéis";
                 filme.Duracao = 120;
                 filme.AnoLancamento = "2000";
                 filme.Classificacao = "Qualquer";
-                filme.IdiomaFalado = idioma;
+                filme.IdiomaFalado = contexto.Idiomas.FirstOrDefault();
 
                 contexto.Filmes.Add(filme);
                 contexto.SaveChanges();
