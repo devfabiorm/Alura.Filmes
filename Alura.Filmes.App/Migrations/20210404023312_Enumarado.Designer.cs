@@ -11,9 +11,10 @@ using System;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(AluraFilmesContext))]
-    partial class AluraFilmesContextModelSnapshot : ModelSnapshot
+    [Migration("20210404023312_Enumarado")]
+    partial class Enumarado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

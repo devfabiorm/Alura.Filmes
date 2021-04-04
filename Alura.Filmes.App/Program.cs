@@ -11,19 +11,31 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-           using(var contexto = new AluraFilmesContext())
+
+            //var test = ClassificacaoIndicativa.MaioresQue10;
+
+            //foreach(ClassificacaoIndicativa item in Enum.GetValues(typeof(ClassificacaoIndicativa)))
+            //{
+            //    Console.WriteLine(item.ParaString());
+            //}
+
+
+            using (var contexto = new AluraFilmesContext())
             {
                 contexto.LogSQLToConsole();
 
                 var filme = new Filme();
-                filme.Titulo = "Senhor dos Anéis";
+                filme.Titulo = "Cassino Royale";
                 filme.Duracao = 120;
                 filme.AnoLancamento = "2000";
-                filme.Classificacao = "Qualquer";
+                filme.Classificacao = ClassificacaoIndicativa.Livre;
                 filme.IdiomaFalado = contexto.Idiomas.FirstOrDefault();
 
                 contexto.Filmes.Add(filme);
                 contexto.SaveChanges();
+
+                var filmeEncontrado = contexto.Filmes.First(f => f.Titulo == "Cassino Royale");
+                Console.WriteLine(filmeEncontrado.Classificacao);
             }
         }
     }

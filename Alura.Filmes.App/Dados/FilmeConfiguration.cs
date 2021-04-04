@@ -54,10 +54,25 @@ namespace Alura.Filmes.App.Dados
                 .WithMany(i => i.FilmesOriginais)
                 .HasForeignKey("original_language_id");
 
+            //Solução EF2.1 em diante
+            /*
+                         builder
+                .Property<ClassificacaoIndicativa>(f => f.Classificacao)
+                .HasConversion<string>(
+                    f => f.ParaString(),
+                    f => f.ParaValor() 
+                )
+                .HasColumnType("varchar(10)")
+                .HasColumnName("rating");
+             */
+
             builder
-                .Property(f => f.Classificacao)
+                .Property(f => f.TextoClassificacao)
                 .HasColumnName("rating")
                 .HasColumnType("varchar(10)");
+
+            builder
+                .Ignore(f => f.Classificacao);
         }
     }
 }
