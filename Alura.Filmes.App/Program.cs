@@ -24,18 +24,17 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var filme = new Filme();
-                filme.Titulo = "Cassino Royale";
-                filme.Duracao = 120;
-                filme.AnoLancamento = "2000";
-                filme.Classificacao = ClassificacaoIndicativa.Livre;
-                filme.IdiomaFalado = contexto.Idiomas.FirstOrDefault();
+                Console.WriteLine("Clientes:");
+                foreach (var cliente in contexto.Clientes)
+                {
+                    Console.WriteLine(cliente);
+                }
 
-                contexto.Filmes.Add(filme);
-                contexto.SaveChanges();
-
-                var filmeEncontrado = contexto.Filmes.First(f => f.Titulo == "Cassino Royale");
-                Console.WriteLine(filmeEncontrado.Classificacao);
+                Console.WriteLine("\nFuncionários");
+                foreach (var func in contexto.Funcionarios)
+                {
+                    Console.WriteLine(func);
+                }
             }
         }
     }
