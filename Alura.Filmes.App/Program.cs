@@ -24,16 +24,16 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                Console.WriteLine("Clientes:");
-                foreach (var cliente in contexto.Clientes)
-                {
-                    Console.WriteLine(cliente);
-                }
+                var sql = @"select a.*
+                from actor a
+                inner join
+                top5_most_starred_actors filmes on filmes.actor_id = a.actor_id";
 
-                Console.WriteLine("\nFuncionários");
-                foreach (var func in contexto.Funcionarios)
+                var atoresMaisAtuantes = contexto.Atores.FromSql(sql).Include(a => a.Filmografia);
+
+                foreach (var ator in atoresMaisAtuantes)
                 {
-                    Console.WriteLine(func);
+                    Console.WriteLine($"O ator {ator.PrimeiroNome} {ator.UltimoNome} atuou em {ator.Filmografia.Count} filmes");
                 }
             }
         }
